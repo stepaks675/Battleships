@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import clsx from "clsx";
 import { useState, useEffect, useCallback } from "react";
 import { throttle } from "lodash";
