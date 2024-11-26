@@ -40,6 +40,7 @@ export const Auth = () => {
         .then(() => alert("Успешное создание аккаунта"));
 
     } else {
+      try{
         fetch("http://localhost:4200/api/signin", {
             method: "POST",
             headers: {
@@ -52,14 +53,21 @@ export const Auth = () => {
           })
             .then((r) => r.json())
             .then(data => {
-
+                try{
                 const payload = jwtDecode(data.access_token)
+                
    
                 dispatch(setUser({id: payload.sub, name: payload.username, token: data.access_token}))
 
                 navigator("/rooms")
+                } catch{
+                  alert("Неверный логин или пароль")
+                }
             });
+    } catch (err) {
+      alert("Неверный логин или пароль")
     }
+  } 
   };
   return (
     <div className="w-[250px] rounded-lg h-fit flex flex-col items-center justify-between border mx-auto mt-96 border-black gap-5 px-2">

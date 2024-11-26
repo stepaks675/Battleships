@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useState, useEffect, useCallback } from "react";
 import { throttle } from "lodash";
 type CellType =
-  | 0
+   0
   | 11
   | 12
   | 13
@@ -130,7 +130,7 @@ export const Game = () => {
         const row = Math.max(Math.floor(y / cellsize), 0);
 
         const cellid = Math.min(row * 12 + col, 143);
-
+        
         setMousePos(cellid);
       },
       50,
